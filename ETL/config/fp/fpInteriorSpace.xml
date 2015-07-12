@@ -1,0 +1,106 @@
+<Gizinta xmlns:gizinta="http://gizinta.com" errorTableName="gzError" logTableName="gzLog" version="2013.1">
+	<Extract>
+		<CADDataset sourceIDField="Handle" sourceName="RMS" targetName="InteriorSpace">
+			<WhereClause/>
+		</CADDataset>
+	</Extract>
+	<Transform>
+		<Dataset name="InteriorSpace" qa="CheckFields,CheckGeometry" sourceIDField="SPACEID" sourceNameField="SPACEID">
+			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Required">SITEID</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getSiteID(feature)</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>20</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Required">BUILDINGID</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getBuildingID(feature)</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>20</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Required">FLOORCODE</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getFloor(feature)</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>20</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Required">FLOORID</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getFloorID(feature)</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>50</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">ROOM_NUMBER</SourceName>
+				<TargetName qa="Optional">ROOMNUMBER</TargetName>
+				<Method>Copy</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>20</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">ROOM_NUMBER</SourceName>
+				<TargetName qa="Required,Unique">SPACEID</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getSpaceID(feature,"ROOM_NUMBER")</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>20</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Optional">SPACECLASS</TargetName>
+				<Method>None</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>60</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">ROOM_AREA</SourceName>
+				<TargetName qa="Optional">SPACEAREA</TargetName>
+				<Method>Copy</Method>
+				<FieldType>Double</FieldType>
+				<FieldLength>8</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"/>
+				<TargetName qa="Optional">LASTUPDATE</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getDBTime()</PythonExpression>
+				<FieldType>Date</FieldType>
+				<FieldLength>8</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"/>
+				<TargetName qa="Optional">LASTEDITOR</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.defaultUserName()</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>50</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">autocad_entity_handle</SourceName>
+				<TargetName qa="Required">SOURCEID</TargetName>
+				<Method>Copy</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>30</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">fme_basename</SourceName>
+				<TargetName qa="Required">SOURCEDWG</TargetName>
+				<Method>Copy</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>60</FieldLength>
+			</Field>
+			<SourceFieldNames>Color,Elevation,Entity,FACFLOORCODE,FACNUM,FACROOM,FLOORCODE,Handle,Layer,LineWt,Linetype,ROOM_AREA,ROOM_NUMBER,RefName</SourceFieldNames>
+			<ChangeDetection exceptProductionView="eInteriorSpaceExceptProduction" exceptStagingView="eInteriorSpaceExceptStaging" 
+			idField="SPACEID"
+			viewFields="FLOORID,ROOMNUMBER,SPACEID,SPACEAREA,SOURCEID,SHAPE"/>
+		</Dataset>
+	</Transform>
+</Gizinta>

@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<Gizinta errorTableName="gzError" logTableName="gzLog" version="2013.1" xmlns:gizinta="http://gizinta.com">
+	<Extract>
+		<CADDataset sourceIDField="autocad_entity_handle" sourceName="Building" targetName="Building">
+			<WhereClause/>
+		</CADDataset>
+		<GDBDataset sourceIDField="BUILDINGID" sourceName="Building" targetName="Building">
+			<WhereClause/>
+		</GDBDataset>
+	</Extract>
+	<Transform>
+		<Dataset name="Building" qa="CheckFields,CheckGeometry" sourceIDField="autocad_entity_handle" sourceNameField="autocad_entity_handle">
+			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Required">SITEID</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getSiteplanID(feature)</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>60</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Required">BUILDINGID</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getSiteplanBuildingID(feature)</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>60</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">FACNUM</SourceName>
+				<TargetName qa="Optional">FACILITYNO</TargetName>
+				<Method>Copy</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>20</FieldLength>
+			</Field>
+<!--			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Optional">NAME</TargetName>
+				<Method>PythonCalculate</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>255</FieldLength>
+			</Field>-->
+<!--			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Required">SENSITIVITY</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getSensitivity(feature)</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>60</FieldLength>
+			</Field>-->
+			<Field>
+				<SourceName qa="Optional"/>
+				<TargetName qa="Optional">LASTUPDATE</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getDBTime()</PythonExpression>
+				<FieldType>Date</FieldType>
+				<FieldLength>36</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"/>
+				<TargetName qa="Optional">LASTEDITOR</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.defaultUserName()</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>30</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">autocad_entity_handle</SourceName>
+				<TargetName qa="Optional">SOURCEID</TargetName>
+				<Method>Copy</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>30</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">fme_basename</SourceName>
+				<TargetName qa="Optional">SOURCEDWG</TargetName>
+				<Method>Copy</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>60</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">RULEID</SourceName>
+				<TargetName qa="Optional">RuleID</TargetName>
+				<Method>None</Method>
+				<FieldType>Integer</FieldType>
+				<FieldLength>4</FieldLength>
+			</Field>
+			<ChangeDetection exceptProductionView="eBuildingExceptProduction" exceptStagingView="eBuildingExceptStaging" 
+			idField="BUILDINGID" viewIdField="SOURCEDWG"
+			viewFields="SOURCEDWG,BUILDINGID,FACILITYNO,SHAPE"/>
+			<SourceFieldNames>Color,Elevation,Entity,FACNUM,Handle,Layer,LineWt,Linetype,RULEID,RefName</SourceFieldNames>
+		</Dataset>
+	</Transform>
+</Gizinta>

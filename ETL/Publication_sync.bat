@@ -1,0 +1,1 @@
+fme C:\Apps\Gizinta\gseFP\ETL\fme\gseSyncToPublication.fmw --GEODATABASE_SDE_IN_CONNECTION_FILE_GEODATABASE_SDE "C:\Apps\Gizinta\gseFP\ETL\serverConfig\GIS Production.sde" --GEODATABASE_SDE_OUT_CONNECTION_FILE_GEODATABASE_SDE "C:\Apps\Gizinta\gseFP\ETL\serverConfig\GIS Publication.sde"

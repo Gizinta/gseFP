@@ -1,0 +1,1 @@
+C:\Apps\Gizinta\gseFP\ETL\py\gseLoaderFME.py bldgOutlineArchivePlaylist.xml gseDataConfig.xml

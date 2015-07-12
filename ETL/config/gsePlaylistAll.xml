@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<GizintaPlaylist errorTableName="gzError" fileExtension=".dwg" logTableName="gzLog" xmlns:gizinta="http://gizinta.com">
+	<File>bldg\bldgBuildingFoundation.xml</File>
+	<File>bldg\bldgBuildingOutline.xml</File>
+	<File>bldg\bldgBuildingOutlinePoint.xml</File>
+	<File>bldg\bldgBuildingRoof.xml</File>
+	<File>bm\bmBuilding.xml</File>
+	<File>bm\bmBuildingPoint.xml</File>
+	<File>fp\fpFloorArea.xml</File>
+	<File>fp\fpFloorplanLine.xml</File>
+	<File>fp\fpFloorOutline.xml</File>
+	<File>fp\fpFloorPoint.xml</File>
+	<File>fp\fpFloorPoly.xml</File>
+	<File>fp\fpInteriorSpace.xml</File>
+	<File>fp\fpInteriorSpacePoint.xml</File>
+	<File>fp\fpInteriorSpaceTilt.xml</File>
+	<File>rt\rtDoorPoint.xml</File>
+	<File>rt\rtStop.xml</File>
+	<File>rt\rtRoomPoint.xml</File>
+	<File>rt\rtLineInterior.xml</File>
+	<File>rt\rtLineRmConnector.xml</File>
+	<File>rt\rtLineTransition.xml</File>
+	<File>rt\rtWaypoint.xml</File>
+	</GizintaPlaylist>

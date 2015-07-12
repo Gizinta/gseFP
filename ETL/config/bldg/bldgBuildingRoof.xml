@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<Gizinta errorTableName="gzError" logTableName="gzLog" version="2013.1" xmlns:gizinta="http://gizinta.com">
+	<Extract>
+		<CADDataset sourceIDField="autocad_entity_handle" sourceName="Building_Roof" targetName="Building_Roof">
+			<WhereClause/>
+		</CADDataset>
+	</Extract>
+	<Transform>
+		<Dataset name="Building_Roof" qa="CheckFields,CheckGeometry" sourceIDField="autocad_entity_handle" sourceNameField="FACNUM">
+			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Required">SITEID</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getSiteID(feature)</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>60</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"></SourceName>
+				<TargetName qa="Required">BUILDINGID</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getBuildingID(feature)</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>60</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">SOURCEID</SourceName>
+				<TargetName qa="Optional">SOURCEID</TargetName>
+				<Method>Copy</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>30</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">SOURCEDWG</SourceName>
+				<TargetName qa="Optional">SOURCEDWG</TargetName>
+				<Method>Copy</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>60</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"/>
+				<TargetName qa="Optional">LASTUPDATE</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.getDBTime()</PythonExpression>
+				<FieldType>Date</FieldType>
+				<FieldLength>36</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional"/>
+				<TargetName qa="Optional">LASTEDITOR</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.defaultUserName()</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>50</FieldLength>
+			</Field>
+			<ChangeDetection exceptProductionView="eBuildingRoofExceptProduction" exceptStagingView="eBuildingRoofExceptStaging" idField="BUILDINGID" viewIdField="SOURCEDWG" viewFields="SOURCEDWG,BUILDINGID,SHAPE"/>
+			<SourceFieldNames>Color,Elevation,Entity,FACNUM,Handle,Layer,LineWt,Linetype,RULEID,RefName</SourceFieldNames>
+		</Dataset>
+	</Transform>
+</Gizinta>

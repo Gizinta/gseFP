@@ -1,0 +1,43 @@
+<Gizinta xmlns:gizinta="http://gizinta.com" errorTableName="gzError" logTableName="gzLog" version="2013.1">
+	<Extract>
+		<GDBDataset sourceIDField="BUILDINGID" sourceName="Building_Outline_Tilt" targetName="Building_Outline_Point">
+			<WhereClause/>
+		</GDBDataset>
+	</Extract>
+	<Transform>
+		<Dataset name="Building_Outline_Point" qa="CheckFields,CheckGeometry" sourceIDField="BUILDING" sourceNameField="BUILDINGID">
+			<Field>
+				<SourceName qa="Optional">SITEID</SourceName>
+				<TargetName qa="Required">SITEID</TargetName>
+				<Method>Copy</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>20</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">BUILDINGID</SourceName>
+				<TargetName qa="Optional">BUILDINGID</TargetName>
+				<Method>Copy</Method>
+				<FieldType>String</FieldType>
+				<FieldLength>20</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">LASTUPDATE</SourceName>
+				<TargetName qa="Optional">LASTUPDATE</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>myGizinta.GetDBTime()</PythonExpression>
+				<FieldType>Date</FieldType>
+				<FieldLength>36</FieldLength>
+			</Field>
+			<Field>
+				<SourceName qa="Optional">LASTEDITOR</SourceName>
+				<TargetName qa="Optional">LASTEDITOR</TargetName>
+				<Method>PythonCalculate</Method>
+				<PythonExpression>gseDrawing.defaultUserName()</PythonExpression>
+				<FieldType>String</FieldType>
+				<FieldLength>30</FieldLength>
+			</Field>
+			<ChangeDetection exceptProductionView="eBuildingOutlinePtExceptProduction" exceptStagingView="eBuildingOutlinePtExceptStaging" idField="BUILDINGID" viewIdField="BUILDINGID" viewFields="BUILDINGID"/>
+			<SourceFieldNames>BUILDINGID,CALCROT,LASTUPDATE,LASTEDITOR,SOURCEDWG,SOURCEID</SourceFieldNames>
+		</Dataset>
+	</Transform>
+</Gizinta>

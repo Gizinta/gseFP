@@ -1,0 +1,1 @@
+C:\Apps\Gizinta\gseFP\ETL\py\gseLoaderFME.py fpLoadPlaylist.xml,fpDerivePlaylist.xml gseDataConfig.xml
