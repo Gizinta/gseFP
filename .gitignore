@@ -1,20 +1,43 @@
-## Object files
-*.pyc
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
-## Log files
-*.log
+# Folder config file
+Desktop.ini
 
-## FME error files
-*.ffs
-=======
-## local config files
-*.sde
-*.zip
-*.mxd
-*.pyc
-*.pyc
-## data
-## *.dwg
-## *.wld
-*.gdb/
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
 
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
