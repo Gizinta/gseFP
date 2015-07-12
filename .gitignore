@@ -14,7 +14,7 @@
 ETL/py/*.pyc
 ETL/fme/*.pyc
 ## data
-*.dwg
-*.wld
+## *.dwg
+## *.wld
 *.gdb/
 
