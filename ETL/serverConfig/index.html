@@ -5,6 +5,7 @@ layout: default
 published: true
 ---
 
+
  
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
@@ -16,11 +17,11 @@ published: true
 		<p>The xml configuration files have a number of settings that are specific to a particular process. Most of the time 
 		gseDataConfig.xml is used for processing, and it has the following settings:
           <table>
-            <th>Setting</th><th>Example</th><th>Description</th>
+            <th width='10%'>Setting</th><th width='10%'>Example</th><th>Description</th>
             <tr>
 <td>cadFolder</td> 
-<td>"'C:\Apps\Gizinta\gseUW\CAD\Floorplans'"</td>
-<td>the location of the source cad drawings</td>
+<td>"'C:\Apps\Gizinta\gseFP\CAD\Floorplans'"</td>
+<td>The location of the source cad drawings</td>
             </tr>
             <tr>
 <td>stagingWS</td>
@@ -29,7 +30,7 @@ published: true
             <tr>
 <td>productionWS</td>
 <td>"GIS Production.sde"</td>
-<td>the names of the sde connection files</td>
+<td>The names of the production SDE connection file</td>
         	</tr>
             <tr>
               <td>deleteCADFiles</td>
@@ -39,7 +40,7 @@ published: true
 <tr>
   <td>autoSync</td>
   <td>"True"</td>
-  <td>automatically sync to the production database if processing is successful</td>
+  <td>Automatically sync to the production database if processing is successful</td>
             </tr>
             <tr>
               <td>exitOnError</td><td>"False"</td><td>Continue processing if errors occur</td></tr>
