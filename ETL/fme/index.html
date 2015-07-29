@@ -5,6 +5,7 @@ layout: default
 published: true
 ---
 
+
  
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
@@ -18,7 +19,20 @@ published: true
 		portions of those values. These settings are unique for each organization, and all of the configuration files use gseDrawing to construct these values. This is one of the main places where changes are made for a new customer project, and the place where functions are updated it the CAD drawing location/folder structure changes, or if other organization-wide changes are made.</p>
 		<p>gzfme.py contains functions that are used by python scripts within FME related to the Gizinta configuration files. 
 		It also contains some of the logic for shutdown scripts and other common parts of the FME workbench setup.</p>
-		<h3>Folders:</h3>
+		<h3>Load Processes:</h3>
+		<ul>
+          <li><a href='gseBuildingOutlineLoader.html'>gseBuildingOutlineLoader.fmw</a> - Load building outlines.</li>
+          <li><a href='gseFloorplanLoader.html'>gseFloorplanLoader.fmw</a> - Load floorplan data.</li>
+          <li><a href='gseFloorplanDerive.html'>gseFloorplanDerive.fmw</a> - Create derived floorplan data.</li>
+          <li><a href='gseBuildingOutlineLoader.html'>gseBuildingOutlineLoader.fmw</a> - Load building outlines.</li>
+        </ul>
+        
+		<h3>Archive Processes:</h3>
+		<ul>
+          <li><a href='gseBuildingOutlineArchive.html'>gseBuildingOutlineArchive.fmw</a> - Archive a building.</li>
+          <li><a href='gseFloorplanArchive.html'>gseFloorplanArchive.fmw</a> - Archive a floor.</li>
+        </ul>
+        <h3>Folders:</h3>
 		<p>Customxfmr - Custom transformers that must be installed in the user or system fme transformer folder</p>
 		<p>embed - Python stub code to be embedded as startup and shutdown scripts in any new FME processes</p>
 		<p>log - Location of log files produced by the system. These files are very useful for debugging purposes</p>
