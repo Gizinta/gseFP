@@ -1,0 +1,26 @@
+---
+title: gseFloorplanDerive
+tagline: Create Derived Floorplan data
+layout: default
+published: true
+---
+ 
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+		<h3>gseFloorplanDerive</h3>
+		<p>This process creates derived data from the basic flooplan lines, spaces, and floor area polygons.</p>
+
+		<p>There are 4 datasets that are updated in this process as shown below</p>
+		<img src='{{ site.url }}/images/gseFloorplanDerive.png'></img>
+		<p></p>
+		<p>Each of these datasets has a different representation than the base Floorplan features.</p>
+		<ul>
+			<li>Floor_Area - An aggregate of the Floor_Poly features to ensure that there is one row per floor.</li>
+			<li>Floor_Hull - A convex hull around the floor that can be used (i.e., with Data-Driven Pages and the Attribute Assistant) to capture floor attributes in GIS Applications.</li>
+			<li>Floor_Point - A point with the same location as the BuildingOutline Point. This is used with Data-Driven pages to center the window on the exact same location for each floor in a building.
+			These points can also be moved around to tailor the location of map views, the update process ignores geometry for these features.</li>
+			<li>InteriorSpace_Point - A point inside the InteriorSpace polygons that can be used to support mapping and search capabilities.</li>
+			<li>InteriorSpace_Tilt - An isometric view of the rooms for the floor that can be viewed and printed in 2D GIS applications with a 3D effect.</li>
+        </ul>
+	  </section>
+    </div>
