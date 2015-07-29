@@ -5,6 +5,7 @@ layout: default
 published: true
 ---
 
+
  
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
@@ -13,10 +14,10 @@ published: true
 
 		<p>There are 3 datasets that are updated in this process as shown below</p>
         <img src='{{ site.url }}/images/gseFloorplanLoader.png'/>
-      <p>The fourth dataset for the Building outline is created first with the gseBuildingOutlineLoader.fmw process. The Floorplan load process relies
-		on both the BuildingOutline feature and a corresponding row in the Active_Floors table.</p>
+      <p>The fourth dataset for the Building outline is created first with the gseBuildingOutlineLoader.fmw process. The Floorplan load process relies on both the BuildingOutline feature and a corresponding row in the Active_Floors table.</p>
 		<p>The datasets are basically copied from the source drawings, the main difference is that the number of floorplan line features is reduced by aggregating them by source CAD layer. 
 		This greatly reduces the number of features in the database and improves drawing performance significantly.</p>
+        <p>The 2 main other functions performed in this process are to re-project the data from paper space to Web Mercator coordinates, and also to fix any 'catwalks' in the CAD drawings. Typically the room-within-room situations on a floor involve drawing lines very close to together in CAD but we want to erase those lines for GIS features and have polygons within polygons.</p>
 		<ul>
 			<li>InteriorSpace - these are the space polygons. The source must be closed polygons with at least a room number attribute.</li>
 			<li>Floor_Poly - The base floorplate area as created in CAD corresponding to your rules that define floor area. This can be include more than one feature per floor.</li>
